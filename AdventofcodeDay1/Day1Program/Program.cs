@@ -38,6 +38,9 @@
             int total = 0;
             for (int i = 0; i < numbersLeft.Length; i++)
             {
+                // Check whether or not I need to check up to the left number or numbers after the left number.
+                // (As both lists are sorted)
+                // This should be slightly faster than checking through the whole list, although it doesn't really matter
                 if (numbersLeft[i] < numbersRight[i])
                 {
                     total += numbersLeft[i] * CheckDuplicates(numbersLeft[i], numbersRight, 0, i);
