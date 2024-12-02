@@ -77,12 +77,4 @@
                         unsafe_instances++;
                     }
                 }
-                if (unsafe_instances <= 1)
-                {
-                    safeReports++;
-                }
-            }
-            Console.WriteLine(safeReports);
-        }
-    }
-}
+                
