@@ -1,18 +1,17 @@
-﻿namespace AdventOfCode
+namespace AdventOfCode.Days;
+public class Day02
 {
-    class Program
+    const string filepath = "Inputs/Day02.txt";
+    public static void Solve()
     {
-        const string filepath = "input.txt";
-        static void Main()
-        {
-            // Quite badly written but I wanted to do this one quickly
+        // Quite badly written but I wanted to do this one quickly
             // Also leaving all programs as they were written when i did this, not changing them afterwards
             string[] reports = new string[1000];
             using (StreamReader sr = new StreamReader(filepath))
             {
                 string line;
                 int i = 0;
-                while ((line = sr.ReadLine()) != null)
+                while ((line = sr.ReadLine()!) != null)
                 {
                     reports[i] = line;
                     i++;
@@ -43,12 +42,10 @@
                     {
                         if (intReport[j] < intReport[j-1])
                         {
-                            Console.WriteLine("Unsafe");
                             unsafe_instances++;
                         }
                         if (intReport[j] > intReport[j-1] + 3)
                         {
-                            Console.WriteLine("Unsafe");
                             // Unsafe
                             unsafe_instances++;
                         }
@@ -57,13 +54,11 @@
                     {
                         if (intReport[j] > intReport[j-1])
                         {
-                            Console.WriteLine("Unsafe");
                             // Unsafe
                             unsafe_instances++;
                         }
                         if (intReport[j] < intReport[j-1] - 3)
                         {
-                            Console.WriteLine("Unsafe");
                             // Unsafe
                             unsafe_instances++;
                         }
@@ -72,7 +67,6 @@
 
                     if (intReport[j] == intReport[j-1])
                     {
-                        Console.WriteLine("Unsafe");
                         // Unsafe
                         unsafe_instances++;
                     }
@@ -83,6 +77,5 @@
                 }
             }
             Console.WriteLine(safeReports);
-        }
     }
 }
